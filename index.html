@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow SMP Launcher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-mark">S</div>
+      <div class="brand-name">SHADOW<span> SMP</span></div>
+      <div class="side-label">LAUNCHER</div>
+      <div class="nav-item active"><span>◈</span> Home</div>
+      <div class="nav-item"><span>▣</span> Server</div>
+      <div class="nav-item"><span>⚙</span> Settings</div>
+      <div class="side-bottom">
+        <div class="status-dot"></div>
+        <div><b>CLIENT</b><small>Local test build</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="crumb">SHADOW SMP <span>/</span> HOME</div>
+        <div class="version-pill"><i></i> JAVA EDITION</div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <div class="eyebrow"><span class="line"></span> YOUR WORLD AWAITS</div>
+          <h1>ENTER THE<br><span>SHADOWS.</span></h1>
+          <p class="hero-copy">Your SMP. Your adventure. One click away.</p>
+          <div class="server-status">
+            <span class="pulse" id="pulse"></span>
+            <span id="statusText">Checking server…</span>
+            <span class="status-separator">/</span>
+            <span id="serverAddress">play.example.net</span>
+          </div>
+          <div class="actions">
+            <button class="play-button" id="playButton"><span class="play-icon">▶</span> OPEN MINECRAFT</button>
+            <button class="secondary-button" id="copyButton">COPY SERVER IP</button>
+          </div>
+          <p class="notice" id="notice" aria-live="polite">Opens the official Minecraft Launcher. Sign in there to play online.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orb orb-one"></div><div class="orb orb-two"></div>
+          <div class="sigil">S</div><div class="ring ring-one"></div><div class="ring ring-two"></div>
+          <div class="art-caption">NO LIGHT. NO LIMITS.</div>
+        </div>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel server-panel">
+          <div class="panel-head"><div><div class="panel-kicker">CONNECTION</div><h2>Server details</h2></div><span class="panel-icon">⌁</span></div>
+          <div class="detail-row"><span>SERVER</span><b id="serverName">YOUR SMP</b></div>
+          <div class="detail-row"><span>ADDRESS</span><b id="serverAddress2">play.example.net</b></div>
+          <div class="detail-row"><span>PORT</span><b>25565</b></div>
+          <div class="detail-row"><span>GAME VERSION</span><b>Set in Minecraft Launcher</b></div>
+        </article>
+        <article class="panel profile-panel">
+          <div class="panel-head"><div><div class="panel-kicker">LOCAL PROFILE</div><h2>Test profile</h2></div><span class="panel-icon">◉</span></div>
+          <label for="username">Display name (launcher preview only)</label>
+          <input id="username" maxlength="16" placeholder="Enter a test username" autocomplete="off">
+          <div class="profile-note">This name is saved only for the interface preview. It is not a Minecraft login and does not authenticate you on multiplayer servers.</div>
+          <button class="text-button" id="saveName">SAVE DISPLAY NAME <span>→</span></button>
+        </article>
+      </section>
+      <footer><span>SHADOW SMP LAUNCHER <span class="muted">v1.0.0</span></span><button id="downloadButton">GET MINECRAFT ↗</button></footer>
+    </main>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

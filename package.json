@@ -1,0 +1,37 @@
+{
+  "name": "shadow-smp-launcher",
+  "version": "1.0.0",
+  "description": "A custom Windows launcher shell for your Minecraft SMP",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "in.shadowborn.smplauncher",
+    "productName": "Shadow SMP Launcher",
+    "directories": { "output": "dist" },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "package.json"
+    ],
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "Shadow-SMP-Launcher-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
