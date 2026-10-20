@@ -1,76 +1,78 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shadow SMP Launcher</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MONARCH CLIENT</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <div class="brand-mark">S</div>
-      <div class="brand-name">SHADOW<span> SMP</span></div>
-      <div class="side-label">LAUNCHER</div>
-      <div class="nav-item active"><span>◈</span> Home</div>
-      <div class="nav-item"><span>▣</span> Server</div>
-      <div class="nav-item"><span>⚙</span> Settings</div>
-      <div class="side-bottom">
-        <div class="status-dot"></div>
-        <div><b>CLIENT</b><small>Local test build</small></div>
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <div class="crumb">SHADOW SMP <span>/</span> HOME</div>
-        <div class="version-pill"><i></i> JAVA EDITION</div>
-      </header>
-
-      <section class="hero">
-        <div class="hero-content">
-          <div class="eyebrow"><span class="line"></span> YOUR WORLD AWAITS</div>
-          <h1>ENTER THE<br><span>SHADOWS.</span></h1>
-          <p class="hero-copy">Your SMP. Your adventure. One click away.</p>
-          <div class="server-status">
-            <span class="pulse" id="pulse"></span>
-            <span id="statusText">Checking server…</span>
-            <span class="status-separator">/</span>
-            <span id="serverAddress">play.example.net</span>
-          </div>
-          <div class="actions">
-            <button class="play-button" id="playButton"><span class="play-icon">▶</span> OPEN MINECRAFT</button>
-            <button class="secondary-button" id="copyButton">COPY SERVER IP</button>
-          </div>
-          <p class="notice" id="notice" aria-live="polite">Opens the official Minecraft Launcher. Sign in there to play online.</p>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="orb orb-one"></div><div class="orb orb-two"></div>
-          <div class="sigil">S</div><div class="ring ring-one"></div><div class="ring ring-two"></div>
-          <div class="art-caption">NO LIGHT. NO LIMITS.</div>
-        </div>
-      </section>
-
-      <section class="lower-grid">
-        <article class="panel server-panel">
-          <div class="panel-head"><div><div class="panel-kicker">CONNECTION</div><h2>Server details</h2></div><span class="panel-icon">⌁</span></div>
-          <div class="detail-row"><span>SERVER</span><b id="serverName">YOUR SMP</b></div>
-          <div class="detail-row"><span>ADDRESS</span><b id="serverAddress2">play.example.net</b></div>
-          <div class="detail-row"><span>PORT</span><b>25565</b></div>
-          <div class="detail-row"><span>GAME VERSION</span><b>Set in Minecraft Launcher</b></div>
-        </article>
-        <article class="panel profile-panel">
-          <div class="panel-head"><div><div class="panel-kicker">LOCAL PROFILE</div><h2>Test profile</h2></div><span class="panel-icon">◉</span></div>
-          <label for="username">Display name (launcher preview only)</label>
-          <input id="username" maxlength="16" placeholder="Enter a test username" autocomplete="off">
-          <div class="profile-note">This name is saved only for the interface preview. It is not a Minecraft login and does not authenticate you on multiplayer servers.</div>
-          <button class="text-button" id="saveName">SAVE DISPLAY NAME <span>→</span></button>
-        </article>
-      </section>
-      <footer><span>SHADOW SMP LAUNCHER <span class="muted">v1.0.0</span></span><button id="downloadButton">GET MINECRAFT ↗</button></footer>
-    </main>
+<div class="app">
+<aside class="sidebar">
+  <div class="logo">M</div>
+  <h2>MONARCH <span>CLIENT</span></h2>
+  <p class="label">YOUR REALM</p>
+  <button class="nav active" data-page="home">◈　Dashboard</button>
+  <button class="nav" data-page="server">⌁　Server</button>
+  <button class="nav" data-page="identity">◉　Identity</button>
+  <button class="nav" data-page="settings">⚙　Monarch Core</button>
+  <div class="sidefoot">SHADOW MONARCH<br><small>LOCAL PROFILE MODE</small></div>
+</aside>
+<main>
+<header><span id="crumb">MONARCH / DASHBOARD</span><span class="pill">JAVA EDITION</span></header>
+<section class="page active" id="home">
+  <div class="hero">
+    <p class="eyebrow">RISE FROM THE SHADOWS</p>
+    <h1>CLAIM YOUR<br><span>REALM.</span></h1>
+    <p class="muted">Your world. Your journey. Your Monarch Client.</p>
+    <div class="status"><i id="pulse"></i><span id="statusText">Checking server…</span><span>•</span><b id="serverAddress">play.example.net</b></div>
+    <button class="primary" id="playButton">▶　ENTER THE REALM</button>
+    <button class="secondary" id="copyButton">COPY SERVER IP</button>
+    <p id="notice" aria-live="polite">Choose a page from the sidebar to configure your client.</p>
   </div>
-  <script src="renderer.js"></script>
+  <div class="cards">
+    <article><small>YOUR SERVER</small><h3 id="serverName">YOUR SMP</h3><p id="homeAddress">play.example.net</p></article>
+    <article><small>MONARCH IDENTITY</small><h3 id="homeUser">ShadowPlayer</h3><p>Local display profile</p></article>
+  </div>
+</section>
+<section class="page" id="server">
+  <p class="eyebrow">CONNECTION CONFIGURATION</p><h1>REALM <span>SERVER</span></h1>
+  <article class="panel">
+    <label for="serverNameInput">Server name</label><input id="serverNameInput" maxlength="40" value="YOUR SMP">
+    <label for="hostInput">Server address (hostname only)</label><input id="hostInput" maxlength="253" value="play.example.net">
+    <label for="portInput">Port</label><input id="portInput" type="number" min="1" max="65535" value="25565">
+    <button class="primary" id="saveServer">SAVE SERVER</button>
+    <button class="secondary" id="checkServer">CHECK CONNECTION</button>
+    <p class="muted">Connection status checks the server TCP port; it does not guarantee Minecraft compatibility.</p>
+  </article>
+</section>
+<section class="page" id="identity">
+  <p class="eyebrow">YOUR LOCAL PROFILE</p><h1>MONARCH <span>IDENTITY</span></h1>
+  <article class="panel">
+    <label for="username">Display username</label><input id="username" maxlength="16" value="ShadowPlayer" autocomplete="off">
+    <button class="primary" id="saveName">SAVE IDENTITY</button>
+    <p class="muted">This is a local display profile, not a Minecraft account or multiplayer authentication.</p>
+  </article>
+</section>
+<section class="page" id="settings">
+  <p class="eyebrow">CLIENT CONFIGURATION</p><h1>MONARCH <span>CORE</span></h1>
+  <article class="panel">
+    <label for="resolution">Window preference</label>
+    <select id="resolution"><option value="normal">Normal window</option><option value="large">Large window</option></select>
+    <label class="check"><input id="reducedMotion" type="checkbox"> Reduce interface animations</label>
+    <button class="primary" id="saveSettings">SAVE SETTINGS</button>
+    <p class="muted">RAM, Java path and version installation are not implemented yet; these controls will not pretend otherwise.</p>
+  </article>
+  <article class="panel">
+    <h3>Game launch</h3>
+    <p class="muted">This build does not install or directly launch Minecraft. Use a compatible installed Minecraft launcher and follow its account and game-access requirements.</p>
+    <button class="secondary" id="downloadButton">OPEN MINECRAFT DOWNLOAD PAGE ↗</button>
+  </article>
+</section>
+<footer>MONARCH CLIENT <span>v1.0.0 • BLACK / PURPLE</span></footer>
+</main>
+</div>
+<script src="renderer.js"></script>
 </body>
 </html>

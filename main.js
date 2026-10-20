@@ -15,7 +15,7 @@ function createWindow() {
     minWidth: 900,
     minHeight: 600,
     backgroundColor: '#090811',
-    title: 'Shadow SMP Launcher',
+    title: 'Monarch Client',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
